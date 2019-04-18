@@ -107,8 +107,7 @@ class ListDogsActivity : AppCompatActivity() {
      */
     private fun loadDogs() {
         isLoading = true // Set the is loading
-
-        Util.showProgress(this, true, progress, null) // Show to the user that is loading
+        Util.showProgress(this, true, progress, view_dogs) // Show to the user that is loading
 
         // Do API request
         API.getInstance(this).feed(
@@ -125,7 +124,7 @@ class ListDogsActivity : AppCompatActivity() {
                 view_dogs.adapter = ListDogsAdapter(this, dogs)
 
                 // Remove loading
-                Util.showProgress(this, false, progress, null)
+                Util.showProgress(this, false, progress, view_dogs)
                 isLoading = false
             },
             Response.ErrorListener { // On error
