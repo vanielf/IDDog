@@ -26,13 +26,16 @@ class LoginActivity : AppCompatActivity() {
     }
 
     override fun onResume() {
-        super.onResume()
+        // If already has user
         if (Util.getToken(this) != null) {
-            finish()
+            finish() // Don't show login
+        } else {
+        super.onResume()
         }
     }
 
     override fun onBackPressed() {
+        // Don't let user go out activity without authentication success
         moveTaskToBack(true)
     }
 
@@ -40,8 +43,10 @@ class LoginActivity : AppCompatActivity() {
      * Attempts to sign in or register the account specified by the login form.
      * If there are form errors (invalid email, missing fields, etc.), the
      * errors are presented and no actual login attempt is made.
+     *
+     * @param view The login button
      */
-    private fun attemptLogin() {
+    fun attemptLogin(view: View) {
         if (mAuthTask != null) {
             return
         }
@@ -93,6 +98,11 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Verify if email is valid
+     *
+     * @param email The e-mail to validate
+     */
     private fun isEmailValid(email: String): Boolean {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
