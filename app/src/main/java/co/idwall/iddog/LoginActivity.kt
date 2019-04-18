@@ -21,8 +21,6 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
-        button_sign_in.setOnClickListener { attemptLogin() }
     }
 
     override fun onResume() {
@@ -30,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
         if (Util.getToken(this) != null) {
             finish() // Don't show login
         } else {
-        super.onResume()
+            super.onResume()
         }
     }
 
