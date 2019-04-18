@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">ID Dog</string>
+    <string name="preferences_key">idwall_iddog_preferences</string>
+
+    <!-- Activity login -->
+    <string name="prompt_email">E-mail</string>
+    <string name="action_sign_in">Login</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <!-- Activity list -->
+    <string name="title_activity_list_dogs">Dogs</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="category_husky">Husky</string>
+    <string name="category_hound">Hound</string>
+    <string name="category_pug">Pug</string>
+    <string name="category_labrador">Labrador</string>
+    <string name="logout">Sair</string>
+
+</resources>
