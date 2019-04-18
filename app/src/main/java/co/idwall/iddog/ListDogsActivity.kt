@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
 import com.android.volley.Response
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_list_dogs.*
@@ -26,46 +25,46 @@ class ListDogsActivity : AppCompatActivity() {
      * Hold current selected category on activity start
      */
     private var category = "husky"
-    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        if (isLoading) {
-            return@OnNavigationItemSelectedListener false
-        }
 
-            // Verify the new chosen category
-        var newCategory = category
-        when (item.itemId) {
-            R.id.navigation_husky -> {
-                newCategory = "husky"
-            }
-            R.id.navigation_hound -> {
-                newCategory = "hound"
-            }
-            R.id.navigation_pug -> {
-                newCategory = "pug"
-            }
-            R.id.navigation_labrador -> {
-                newCategory = "labrador"
-            }
-        }
-
-            // Verify if was selected a different category
-        if (newCategory != category) {
-                category = newCategory // Change the current selected category
-                loadDogs() // Load the dogs for the new selected category
-            return@OnNavigationItemSelectedListener true
-        }
-
-        false
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_dogs)
 
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        /**
+         * Bottom navigation click event listener
+         */
+        navigation.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            if (isLoading) { // If is already loading a category
+                return@OnNavigationItemSelectedListener false // Don't do nothing
+            }
 
-        view_dogs.layoutManager = GridLayoutManager(this, 4)
-//        view_dogs.layoutManager = StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL)
+            // Verify the new chosen category
+            var newCategory = category
+            when (item.itemId) {
+                R.id.navigation_husky -> {
+                    newCategory = "husky"
+                }
+                R.id.navigation_hound -> {
+                    newCategory = "hound"
+                }
+                R.id.navigation_pug -> {
+                    newCategory = "pug"
+                }
+                R.id.navigation_labrador -> {
+                    newCategory = "labrador"
+                }
+            }
+
+            // Verify if was selected a different category
+            if (newCategory != category) {
+                category = newCategory // Change the current selected category
+                loadDogs() // Load the dogs for the new selected category
+                return@OnNavigationItemSelectedListener true
+            }
+
+            false
+        })
     }
 
     override fun onResume() {
