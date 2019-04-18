@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/navigation_husky"
+            android:icon="@drawable/husky"
+            android:title="@string/category_husky"/>
+    <!-- Icon made by Freepik: https://www.flaticon.com/authors/freepik -->
+
+    <item
+            android:id="@+id/navigation_hound"
+            android:icon="@drawable/hound"
+            android:title="@string/category_hound"/>
+    <!-- Icon made by Freepik: https://www.flaticon.com/authors/freepik -->
+
+    <item
+            android:id="@+id/navigation_pug"
+            android:icon="@drawable/pug"
+            android:title="@string/category_pug"/>
+    <!-- Icon made by Freepik: https://www.flaticon.com/authors/freepik -->
+
+    <item
+            android:id="@+id/navigation_labrador"
+            android:icon="@drawable/labrador"
+            android:title="@string/category_labrador"/>
+    <!-- Icon made by Freepik: https://www.flaticon.com/authors/freepik -->
+
+</menu>
