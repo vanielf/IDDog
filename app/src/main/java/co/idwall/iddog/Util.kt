@@ -91,7 +91,7 @@ class Util {
          */
         fun zoomImageFromThumb(context: Activity, thumbView: ImageView) {
 
-            val shortAnimationDuration = 300
+            val shortAnimationDuration = context.resources.getInteger(android.R.integer.config_shortAnimTime).toLong()
 
             // Load the high-resolution "zoomed-in" image.
             val expandedContainer: View = context.findViewById(R.id.expanded_container)
@@ -140,7 +140,7 @@ class Util {
                     .with(ObjectAnimator.ofFloat(expandedImageView, View.SCALE_X, startScale, 1f))
                     .with(ObjectAnimator.ofFloat(expandedImageView, View.SCALE_Y, startScale, 1f))
 
-                duration = shortAnimationDuration.toLong()
+                duration = shortAnimationDuration
                 interpolator = DecelerateInterpolator()
                 start()
             }
@@ -152,7 +152,7 @@ class Util {
                         .with(ObjectAnimator.ofFloat(expandedImageView, View.Y, startBounds.top.toFloat()))
                         .with(ObjectAnimator.ofFloat(expandedImageView, View.SCALE_X, startScale))
                         .with(ObjectAnimator.ofFloat(expandedImageView, View.SCALE_Y, startScale))
-                    duration = shortAnimationDuration.toLong()
+                    duration = shortAnimationDuration
                     interpolator = DecelerateInterpolator()
                     addListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator) {
